@@ -1,0 +1,8 @@
+FROM ubuntu
+
+ADD http://apache.cp.if.ua/tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16.tar.gz /arch/
+
+WORKDIR /arch/apache-tomcat-8.5.16
+
+ENTRYPOINT /bin/sh
+
