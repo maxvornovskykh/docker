@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mysql:
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=discovery
+    ports:
+        - "3306:3306"   
+    expose:
+        - 3306
+    build:
+      context: mysql
+      dockerfile: mysql.dockerfile 
+    networks:
+       - mysql-network
+    stdin_open: true
+    tty: true
+  jvm:
+    build:
+      context: .
+      dockerfile: jvm/jvm.dockerfile 
+    depends_on: 
+      - mysql
+    networks:
+      - mysql-network
+networks:
+  mysql-network:
+    driver: bridge
