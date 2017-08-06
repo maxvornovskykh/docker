@@ -7,6 +7,6 @@ public class Sample {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Please, enter your name:");
 		String name = br.readLine();
-		System.out.println("Hello! " + name);
+		System.out.println("Hello, " + name);
 	}
 }
